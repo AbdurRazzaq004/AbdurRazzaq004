@@ -1,12 +1,13 @@
--- Ensure the accounts table exists before referencing it below.
--- TODO: Replace column definitions with the actual schema for your accounts model.
-CREATE TABLE IF NOT EXISTS "accounts" (
-    "id" TEXT NOT NULL,
-    "userId" TEXT NOT NULL,
-    "type" TEXT NOT NULL,
-    "provider" TEXT NOT NULL,
-    "providerAccountId" TEXT NOT NULL,
+-- Create the accounts table before any statements that reference it
+CREATE TABLE "accounts" (
+    "id"         TEXT         NOT NULL,
+    "userId"     TEXT         NOT NULL,
+    "type"       TEXT         NOT NULL,
+    "provider"   TEXT         NOT NULL,
+    "providerAccountId" TEXT  NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL,
     CONSTRAINT "accounts_pkey" PRIMARY KEY ("id")
 );
 
--- existing migration SQL below (unchanged)
+-- existing statements below (foreign keys, indexes, etc. that reference accounts)
